@@ -1,0 +1,5 @@
+/runs/
+/backups/
+/dashboard.html
+__pycache__/
+*.pyc

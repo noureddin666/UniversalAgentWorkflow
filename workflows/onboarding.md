@@ -1,0 +1,7 @@
+# Onboarding workflow
+
+Run this when missing project facts block the requested work, or when the user explicitly asks to onboard the repository. Unrelated placeholders do not block a focused task.
+
+Run `setup` (never with `--ask`; that prompt is for a person). It fills `.agent/PROJECT.md` and `.agent/COMMANDS.md` from evidence and leaves the rest `TODO`. Run each command in `.agent/COMMANDS.md` once; fix or remove any row that fails, and replace a remaining `TODO` row only with a command you ran successfully. For each `PROJECT.md` field still `TODO`, cite the file that answers it; anything not grounded in a file becomes `unknown`, and purpose and users come from the user, never from the code. Correct any adopted value the code contradicts. Declare a scope only where work will actually be routed differently, and an architecture module only for a boundary the code really has, with its allowed dependency direction decided rather than inferred. Reconcile pre-existing agent instructions with `AGENTS.md` instead of duplicating them. Do not modify application source code while onboarding. Finish with `doctor` and report what remains undescribed.
+
+For a repository with no code yet, invert the order: record intent and constraints in `.agent/PROJECT.md`, declare architectural boundaries before the first feature, create the first spec, and fill `.agent/COMMANDS.md` only after a build has succeeded.

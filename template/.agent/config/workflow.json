@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "require_approval_for": ["Accepted", "Implemented"],
+  "require_traceability_for_implemented": true,
+  "handoff_path": "HANDOFF.md",
+  "handoff_max_lines": 30,
+  "handoff_max_characters": 3000,
+  "context_warning_tokens": 4000,
+  "context_max_tokens": 8000,
+  "context_characters_per_token": 4.0,
+  "agent_warning_count": 12,
+  "agent_maximum_count": 24,
+  "agent_maximum_concurrency": 6,
+  "agent_maximum_high_effort": 2,
+  "task_max_attempts": 3,
+  "document_whole_file_lines": 80,
+  "entry_points": [
+    "CLAUDE.md",
+    "GEMINI.md",
+    ".github/copilot-instructions.md",
+    ".cursor/rules/agent-workflow.mdc"
+  ]
+}

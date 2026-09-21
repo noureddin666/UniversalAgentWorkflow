@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "command_timeout_seconds": 900,
+  "max_output_characters": 20000,
+  "runs_directory": ".agent/runs",
+  "dashboard_path": ".agent/dashboard.html"
+}

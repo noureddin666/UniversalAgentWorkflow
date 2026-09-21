@@ -1,0 +1,17 @@
+name: Agent workflow quality gates
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  workflow-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - run: python3 .agent/workflow.py validate
+      - run: python3 .agent/workflow.py check-index
+      - run: python3 .agent/workflow.py check-architecture
