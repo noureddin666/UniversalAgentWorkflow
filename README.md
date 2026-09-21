@@ -15,6 +15,8 @@ your architectural boundaries, and proves its work with your own commands.
 
 [Quick start](#quick-start) · [User manual](MANUAL.md) · [الدليل العربي](GUIDE.ar.md) · [Command reference](#command-reference)
 
+<img src="assets/demo.gif" alt="setup --ask filling a project profile from repository evidence" width="820">
+
 </div>
 
 ---
