@@ -1,6 +1,6 @@
 # User manual
 
-This manual explains what the Universal Agent Workflow is, when it earns its cost, and how the pieces fit together. [README.md](README.md) is the installation and command reference; start here. [GUIDE.ar.md](GUIDE.ar.md) covers the same ground in Arabic.
+This is the full explanation and practical reference for Universal Agent Workflow. Start with the [README](README.md) for a quick overview and installation; use the [Arabic guide](GUIDE.ar.md) for a practical introduction in Arabic. This manual covers onboarding, concepts, advanced configuration, daily use, and commands.
 
 ### The short version
 
@@ -10,7 +10,7 @@ cd ../your-project
 python .agent/workflow.py setup --ask                # fills what the repo proves, asks you the rest
 ```
 
-`setup` fills `.agent/PROJECT.md` and `.agent/COMMANDS.md` with everything the repository can prove, each value followed by its evidence, and `--ask` asks you the few questions no file can answer. Run each command in `COMMANDS.md` once before trusting it. Open the project in an agent tool that reads `AGENTS.md` and ask for work in plain language — that is the whole daily usage.
+`setup` fills `.agent/PROJECT.md` with evidence-backed facts and `.agent/COMMANDS.md` with declared commands, each linked to its source. `--ask` asks you the few questions no file can answer. Run each command in `COMMANDS.md` once before treating it as verified. Open the project in an agent tool that reads `AGENTS.md` and ask for work in plain language — that is the whole daily usage.
 
 Nothing else here is mandatory. Section 2 says which parts are worth turning on, and section 3 covers onboarding in full, including a repository with no code yet.
 
@@ -404,6 +404,12 @@ Requirements carry stable `REQ-NNN` ids. Plans and tasks embed a digest of the r
 
 Large specs can split requirements across files under `requirements/`, declared in `requirement_files`. Ids stay unique across the whole bundle, and every command — planning, tasks, validation, reporting — aggregates all of them.
 
+Create a cohesive requirement set without creating a second spec:
+
+```shell
+python .agent/workflow.py add-requirement-set checkout-platform eligibility --title "Eligibility rules"
+```
+
 ### Assumptions and open decisions
 
 A spec carries two fields that record what you do *not* know. They are checked when the spec is accepted, because an accepted spec is a commitment.
@@ -493,6 +499,8 @@ Findings link to scopes and specs, so they surface automatically when someone ro
 ### Decision
 
 `DECISIONS.md` is for choices whose *rationale* must outlive the conversation: a boundary between components, a public contract change, choosing a provider, accepting a temporary exception. Not for things the code already says clearly.
+
+When a stakeholder changes a requirement, update the owning spec and record the request in `.agent/requirements/CHANGES.md`. Classify the change as `clarification`, `additive`, `replacement`, or `reversal`; record the old and new requirement, reason, affected behavior and tests, and required verification. Then regenerate the plan and tasks. If the change makes existing assumptions or acceptance evidence stale, resolve those before accepting the revised spec. Use `DECISIONS.md` for the rationale behind a lasting design choice.
 
 ---
 
